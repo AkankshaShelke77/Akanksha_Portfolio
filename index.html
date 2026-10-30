@@ -80,71 +80,176 @@ nav a:hover{color:var(--paper)}
 nav a:hover::after{width:100%}
 
 /* ---------- hero ---------- */
-.hero{
-    padding:110px 8% 90px;
-    display:flex;
-    align-items:center;
-    gap:60px;
-    position:relative;
-    max-width:1200px;
-    margin:0 auto;
-}
-.hero-frame{
-    position:relative;
-    width:230px; height:280px;
-    flex-shrink:0;
-}
-.hero-frame img{
-    width:100%; height:100%;
-    object-fit:cover;
-    filter:grayscale(25%) contrast(1.05);
-    border:1px solid var(--line);
-}
-.corner{position:absolute; width:16px; height:16px; border:2px solid var(--accent)}
-.corner.tl{top:-8px; left:-8px; border-right:none; border-bottom:none}
-.corner.tr{top:-8px; right:-8px; border-left:none; border-bottom:none}
-.corner.bl{bottom:-8px; left:-8px; border-right:none; border-top:none}
-.corner.br{bottom:-8px; right:-8px; border-left:none; border-top:none}
 
-.terminal-line{
-    font-family:var(--mono);
-    color:var(--accent);
-    font-size:14px;
-    margin-bottom:14px;
+.hero {
+    padding: 110px 8% 90px;
+    display: flex;
+    align-items: center;
+    gap: 75px;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 650px;
 }
-.terminal-line::after{
-    content:'';
-    display:inline-block;
-    width:8px; height:16px;
-    background:var(--accent);
-    margin-left:4px;
-    vertical-align:middle;
-    animation:blink 1s step-end infinite;
-}
-@keyframes blink{50%{opacity:0}}
-.hero h1{
-    font-size:44px;
-    font-weight:600;
-    color:var(--paper);
-    letter-spacing:-0.5px;
-}
-.hero h1 span{color:var(--accent)}
-.hero p{margin:18px 0 26px; color:var(--paper-dim); max-width:520px; font-size:16px}
 
-.btn-row{display:flex; gap:14px}
-.btn{
-    display:inline-flex; align-items:center; gap:8px;
-    background:transparent;
-    color:var(--paper);
-    border:1px solid var(--line);
-    padding:11px 20px;
-    border-radius:var(--radius);
-    text-decoration:none;
-    font-size:14px;
-    font-family:var(--mono);
-    transition:border-color .2s ease, color .2s ease, background .2s ease;
+.hero-frame {
+    position: relative;
+    width: 250px;
+    height: 310px;
+    flex-shrink: 0;
 }
-.btn:hover{border-color:var(--accent); color:var(--accent); background:rgba(242,169,78,0.06)}
+
+.hero-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(15%) contrast(1.05);
+    border: 1px solid var(--line);
+}
+
+.corner {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--accent);
+}
+
+.corner.tl {
+    top: -8px;
+    left: -8px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.corner.tr {
+    top: -8px;
+    right: -8px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.corner.bl {
+    bottom: -8px;
+    left: -8px;
+    border-right: none;
+    border-top: none;
+}
+
+.corner.br {
+    bottom: -8px;
+    right: -8px;
+    border-left: none;
+    border-top: none;
+}
+
+.terminal-line {
+    font-family: var(--mono);
+    color: var(--accent);
+    font-size: 14px;
+    margin-bottom: 14px;
+}
+
+.terminal-line::after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background: var(--accent);
+    margin-left: 4px;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.hero h1 {
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--paper);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.hero h1 span {
+    color: var(--accent);
+}
+
+.hero h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-top: 12px;
+}
+
+.hero p {
+    margin: 18px 0 28px;
+    color: var(--paper-dim);
+    max-width: 550px;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid var(--line);
+    padding: 12px 22px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-size: 14px;
+    font-family: var(--mono);
+    transition: border-color .2s ease, color .2s ease,
+                background .2s ease, transform .2s ease;
+}
+
+.btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(242,169,78,0.06);
+    transform: translateY(-3px);
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 80px 7% 60px;
+        gap: 40px;
+    }
+
+    .hero-frame {
+        width: 210px;
+        height: 260px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .btn-row {
+        justify-content: center;
+    }
+}
+
 
 /* ---------- sections ---------- */
 section{padding:70px 8%; max-width:1200px; margin:0 auto}
@@ -306,6 +411,7 @@ footer{
         <a href="#skills">skills</a>
         <a href="#projects">projects</a>
         <a href="#experience">experience</a>
+        <a href="#education">education</a>
         <a href="#contact">contact</a>
     </nav>
 </header>
@@ -316,21 +422,33 @@ footer{
         <span class="corner tr"></span>
         <span class="corner bl"></span>
         <span class="corner br"></span>
-        <img src="./profile.jpeg" alt="Akanksha Shelke">
+        <img src="./Profile.png" alt="Akanksha Shelke">
     </div>
+
     <div>
         <div class="terminal-line" id="typedLine"></div>
+
         <h1>Hi, I'm <span>Akanksha Shelke</span></h1>
+
+        <h2>Full Stack Java Developer</h2>
+
         <p>
-            Computer Engineering graduate with a strong foundation in Java,
-            C++, SQL and web technologies. Interested in Full Stack Java
-            development, AI/ML and building practical applications.
+            Computer Engineering graduate passionate about developing
+            practical web applications using Java, Spring, and modern
+            web technologies.
         </p>
+
         <div class="btn-row">
-            <a class="btn" href="https://www.linkedin.com/in/akankshashelke7" target="_blank">LinkedIn ↗</a>
-            <a class="btn" href="https://github.com/AkankshaShelke77" target="_blank">GitHub ↗</a>
+            <a class="btn" href="https://www.linkedin.com/in/akankshashelke7"
+            target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+
+            <a class="btn" href="https://github.com/AkankshaShelke77"
+            target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+
+            <a class="btn" href="#contact">Contact Me →</a>
         </div>
     </div>
+
 </section>
 
 <section id="about">
@@ -338,10 +456,14 @@ footer{
     <h2>About Me</h2>
     <div class="about">
         <p>
-            I am a Computer Engineering graduate from Marathwada Mitra Mandal's
-            Institute of Technology, Pune. I have hands-on exposure to Java
-            development, database applications, web technologies and
-            machine-learning workflows.
+            I am a Computer Engineering graduate with a strong foundation in Java, C++, SQL, 
+            and web technologies. I am passionate about Full Stack Java Development and enjoy 
+            building practical applications that solve real-world problems. I have hands-on 
+            experience developing projects using Java, Spring MVC, Hibernate, and MySQL.
+            I am continuously improving my programming and problem-solving skills while 
+            exploring modern technologies such as Spring Boot and React. I am eager to 
+            learn, take on new challenges, and contribute to developing efficient, user-friendly 
+            software solutions.
         </p>
     </div>
 </section>
@@ -408,24 +530,34 @@ footer{
     <div class="projects">
         <div class="card">
             <h3>Indoor Navigation Using AR</h3>
-            <p>Built an AR-based indoor navigation system using QR codes for GPS-free positioning and route guidance.</p>
+            <p>Built an AR-based indoor navigation system. It helps users navigate indoor environments 
+                by scanning QR codes, finding the shortest path, and displaying real-time navigation 
+                directions through AR arrows.</p>
             <p class="tech"><b>Technology:</b> Unity Engine, NavMesh, AR ,QR Codes, A* Algorithm</p>
         </div>
 
         <div class="card">
             <h3>Bank Management System</h3>
-            <p>Developed a banking application for account creation, deposit, withdrawal and balance inquiry.</p>
-            <p class="tech"><b>Technology:</b> Java, JDBC, MySQL, SQL, CRUD, Exception Handling</p>
+            <p>Developed a banking system that allows users to manage bank accounts, deposit 
+                and withdraw money, and transfer funds between accounts. It maintains a permanent 
+                record of all transactions, ensures accurate, secure, reliable operations</p>
+            <p class="tech"><b>Technology:</b> Java, JDBC, MySQL, SQL, Exception Handling</p>
         </div>
 
         <div class="card">
-            <h3>AI/ML Internship Work</h3>
-            <p>Worked on prediction and classification tasks and assisted with developing and testing machine-learning models.</p>
-            <p class="tech"><b>Technology:</b> Python, Scikit-learn, Data Processing</p>
+            <h3>Laptop Repaire Service</h3>
+            <p>Developed a web-based application to manage laptop repair services. 
+                It allows customers to register, submit repair requests, and track 
+                repair status, while administrators can manage repair requests and update service details.
+            </p>
+            <p class="tech"><b>Technology:</b> Java, Spring MVC, Hibernate, MySQL</p>
         </div>
     </div>
 </section>
 
+
+
+<!--
 <section id="experience">
     <span class="section-tag"></span>
     <h2>Experience &amp; Education</h2>
@@ -444,6 +576,84 @@ footer{
         </div>
     </div>
 </section>
+-->
+
+
+
+
+
+<section id="experience">
+    <h2>Experience</h2>
+
+    <div class="timeline">
+
+        <div class="t-item">
+            <span class="date">Present</span>
+            <h3>Full Stack Java Developer Intern — Cravita Technologies</h3>
+            <p>
+                Pune
+            </p>
+            <p>
+                Developing web applications using Core Java, Spring MVC,
+                Hibernate, HTML, CSS, JavaScript, and MySQL.
+                Implementing CRUD operations and managing database connectivity using JDBC 
+                and Hibernate ORM with MySQL.
+            </p>
+        </div>
+
+        <div class="t-item">
+            <span class="date">March 2025</span>
+            <h3>AI Intern — InternsElite</h3>
+            <p>
+                Worked on AI and machine-learning techniques for
+                real-world prediction and classification tasks.
+                Gained hands-on experience with Python,
+                Scikit-learn, and data processing.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+<section id="education">
+    <h2>Education</h2>
+
+    <div class="timeline">
+        <div class="t-item">
+            <span class="date">July 2026</span>
+            <h3>Bachelor of Engineering — Computer Engineering</h3>
+            <p>
+                Marathwada Mitra Mandal's Institute of Technology,
+                Lohegaon, Pune.
+            </p>
+        </div>
+
+        <div class="t-item">
+            <span class="date">2022</span>
+            <h3>Higher Secondary Certificate (HSC)</h3>
+            <p>
+                Mahatma Gandhi Mahavidyalaya, Karjat.
+            </p>
+        </div>
+
+        <div class="t-item">
+            <span class="date">2020</span>
+            <h3>Secondary School Certificate (SSC)</h3>
+            <p>
+                Shri. Ravishankar Vidyamandir, Karjat.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+
 
 <section id="contact" class="contact">
     <span class="section-tag"></span>
